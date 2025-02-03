@@ -1,11 +1,18 @@
 import SingleItem from './SingleItem';
-const Items = ({ removeItem, items }) => {
+const Items = ({ removeItem, items, editItem }) => {
   // console.log(items);
 
   return (
     <div className='items'>
       {items.map((item) => {
-        return <SingleItem key={item.id} item={item} removeItem={removeItem} />;
+        return (
+          <SingleItem
+            key={item.id}
+            item={item}
+            removeItem={removeItem}
+            editItem={editItem}
+          />
+        );
       })}
     </div>
   );

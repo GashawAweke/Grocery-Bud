@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 
-const SingleItem = ({ removeItem, item }) => {
-  const [isChecked, setIsCHecked] = useState(item.completed);
+const SingleItem = ({ removeItem, item, editItem }) => {
+  // const [isChecked, setIsCHecked] = useState(item.completed);
 
   return (
     <div className='single-item'>
       <input
         type='checkbox'
-        checked={isChecked}
-        onChange={() => setIsCHecked(!isChecked)}
+        checked={item.completed}
+        onChange={() => editItem(item.id)}
       />
       <p
         style={{
           textTransform: 'capitalize',
-          textDecoration: isChecked && 'line-through',
+          textDecoration: item.completed && 'line-through',
         }}
       >
         {item.name}
